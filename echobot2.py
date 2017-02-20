@@ -47,6 +47,11 @@ def handle_updates(updates):
             send_message("Select an item to delete", chat, keyboard)
         elif text == "/start":
             send_message("Welcome to your personal To Do list. Send any text to me and I'll store it as an item. Send /done to remove items", chat)
+        elif text == "/show":
+            send_message("Here is the list of items")
+            items = db.get_items(chat)
+            message = "\n".join(items)
+            send_message(message, chat)
         elif text.startswith("/"):
             continue
         elif text in items:

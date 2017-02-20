@@ -8,7 +8,7 @@ class DBHelper:
         self.conn = sqlite3.connect(dbname)
 
     def setup(self):
-        tblstmt = "CREATE TABLE IF NOT EXISTS items (description text, owner text)"
+        tblstmt = "CREATE TABLE IF NOT EXISTS items (description text, owner text, name text, price int, distirct text)"
         itemidx = "CREATE INDEX IF NOT EXISTS itemIndex ON items (description ASC)" 
         ownidx = "CREATE INDEX IF NOT EXISTS ownIndex ON items (owner ASC)"
         self.conn.execute(tblstmt)
